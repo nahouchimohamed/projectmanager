@@ -1,0 +1,162 @@
+<form [formGroup]="update">
+
+    <div class="form-row">
+
+        <div class="form-group col-6">
+            <label>Nom</label>
+            <input type="text" placeholder="Votre Nom " formControlName="Firstname" class="form-control" [ngClass]="{ 'is-invalid': submitted1 && y.Firstname.errors }" />
+            <div *ngIf="submitted1 && y.Firstname.errors" class="invalid-feedback">
+                <div *ngIf="y.Firstname.errors.required">Ce champ est obligatoire
+                </div>
+                <div *ngIf="y.Firstname.errors.pattern">Ce champ doit contenir seulement des caractères
+                </div>
+                <div *ngIf="y.Firstname.errors.maxlength">Ce champ doit contenir ne plus que 8 caractères
+                </div>
+                <div *ngIf="y.Firstname.errors.minlength">Ce champ doit contenir plus que 3 caractères
+                </div>
+
+            </div>
+        </div>
+        <div class="form-group col-6">
+            <label>Prenom</label>
+            <input type="text" placeholder="Votre Prenom " formControlName="Lastname" class="form-control" [ngClass]="{ 'is-invalid': submitted1 && y.Lastname.errors }" />
+            <div *ngIf="submitted1 && y.Lastname.errors" class="invalid-feedback">
+                <div *ngIf="y.Lastname.errors.required">Ce champ est obligatoire
+                </div>
+                <div *ngIf="y.Lastname.errors.pattern">Ce champ doit contenir seulement des caractères
+                </div>
+                <div *ngIf="y.Lastname.errors.maxlength">Ce champ doit contenir ne plus que 8 caractères
+                </div>
+                <div *ngIf="y.Lastname.errors.minlength">Ce champ doit contenir plus que 3 caractères
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="form-group col">
+            <label>Cin</label>
+            <input type="text" placeholder="Votre Cin " formControlName="Cin" class="form-control" [ngClass]="{ 'is-invalid': submitted1 && y.Cin.errors }" maxlength="8" />
+            <div *ngIf="submitted1 && y.Cin.errors" class="invalid-feedback">
+                <div *ngIf="y.Cin.errors.required">Ce champ est obligatoire
+                </div>
+                <div *ngIf="y.Cin.errors.minlength">Ce champ doit contenir 8 numéros
+                </div>
+                <div *ngIf="y.Cin.errors.pattern">Ce champ doit contenir seulement des numéros
+                </div>
+
+
+            </div>
+        </div>
+        <div class="form-group col-6">
+            <label>Team</label>
+            <input type="text" placeholder="Votre team " formControlName="team" class="form-control" [ngClass]="{ 'is-invalid': submitted1 && y.team.errors }" />
+            <div *ngIf="submitted1 && y.team.errors" class="invalid-feedback">
+                <div *ngIf="y.team.errors.required">Ce champ est obligatoire
+                </div>
+                <div *ngIf="y.team.errors.pattern">Ce champ doit contenir seulement des caractères
+                </div>
+                <div *ngIf="y.team.errors.maxlength">Ce champ doit contenir ne plus que 8 caractères
+                </div>
+                <div *ngIf="y.team.errors.minlength">Ce champ doit contenir plus que 3 caractères
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-1.5">
+            <label>Admin:</label>
+            <select class="form-control" formControlName="Admin" [(ngModel)]="selectedOption" [ngClass]="{ 'is-invalid': submitted1 && y.Admin.errors }">
+                <option *ngFor="let Admin of Admin"  [value]="Admin.name"  >{{Admin.name}}</option>
+                
+             </select>
+            <div *ngIf="submitted1 && y.Admin.errors" class="invalid-feedback">
+                <div *ngIf="y.Admin.errors.required">Ce champ est obligatoire
+                </div>
+            </div>
+        </div>
+        <div class="form-group col">
+            <label>Télephone</label>
+            <input type="text" placeholder="Votre Télephone " formControlName="phone" class="form-control" [ngClass]="{ 'is-invalid': submitted1 && y.phone.errors }" maxlength="8" />
+            <div *ngIf="submitted1 && y.phone.errors" class="invalid-feedback">
+                <div *ngIf="y.phone.errors.required">Ce champ est obligatoire
+                </div>
+                <div *ngIf="y.phone.errors.minlength">Ce champ doit contenir 8 numéros
+                </div>
+                <div *ngIf="y.phone.errors.pattern">Ce champ doit contenir seulement des numéros
+                </div>
+
+
+            </div>
+        </div>
+        <div class="form-group col">
+            <label>Adresse mail
+            </label>
+            <input type="text" placeholder="Votre adresse mail" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted1 && y.email.errors }" />
+            <div *ngIf="submitted1 && y.email.errors" class="invalid-feedback">
+                <div *ngIf="y.email.errors.required">Ce champ est obligatoire
+                </div>
+                <div *ngIf="y.email.errors.pattern">Veuillez entrer une adresse électronique valide</div>
+            </div>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col">
+            <label>Mot de passe
+            </label>
+            <input type="password" placeholder="mot de passe" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted1 && y.password.errors }" />
+            <div *ngIf="submitted1 && y.password.errors" class="invalid-feedback">
+                <div *ngIf="y.password.errors.required">Ce champ est obligatoire
+                </div>
+                <div *ngIf="y.password.errors.minlength">Ce champ doit contenir plus que 6 caractères
+                </div>
+            </div>
+        </div>
+        <div class=" col form-group">
+            <label>Confirmer Mot de passe</label>
+            <input type="password" placeholder="mot de passe " formControlName="password2" class="form-control" [ngClass]="{ 'is-invalid': submitted1 && y.password2.errors }" />
+            <div *ngIf="submitted1 && y.password2.errors" class="invalid-feedback">
+                <div *ngIf="y.password2.errors.required">Ce champ est obligatoire
+
+                </div>
+                <div *ngIf="y.password2.errors.mustMatch">Les deux mots de passe ne sont pas identiques
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="form-group">
+        <div class="alert alert-danger" role="alert" *ngIf="submitted1 && isSignUpFailed">
+            {{ errorMessage }}
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="col-3"></div>
+
+        <button class="signin1" [mat-dialog-close]>Annuler</button>
+        <div class="col-1"></div>
+
+        <button class="signin" (click)="onSubmit()">Confirmer</button>
+
+
+        <div class="col-3"></div>
+
+    </div>
+    <div class="alert alert-success" *ngIf="isSuccessful">
+
+
+        <div class="text-center">
+            <h5> update avec succes
+            </h5>
+
+        </div>
+    </div>
+
+
+</form>

@@ -1,0 +1,169 @@
+table {
+    width: 100%;
+}
+
+body {
+    min-width: 1000px;
+    /* Suppose you want minimum width of 1000px */
+    width: auto !important;
+    /* Firefox will set width as auto */
+    width: 1000px;
+    /* As IE6 ignores !important it will set width as 1000px; */
+}
+
+.mat-column-ville {
+    flex: 0 0 28% !important;
+    width: 10% !important;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    -ms-hyphens: auto;
+    -moz-hyphens: auto;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+}
+
+.mat-column-comentair {
+    flex: 0 0 28% !important;
+    width: 10% !important;
+    overflow-wrap: break-word;
+    -ms-hyphens: auto;
+    -moz-hyphens: auto;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+}
+
+.mat-column-Role {
+    flex: 0 0 28% !important;
+    width: 10% !important;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    -ms-hyphens: auto;
+    -moz-hyphens: auto;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+}
+
+.mat-column-region {
+    flex: 0 0 28% !important;
+    width: 10% !important;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    -ms-hyphens: auto;
+    -moz-hyphens: auto;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+}
+
+.mat-column-code {
+    flex: 0 0 28% !important;
+    width: 10% !important;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    -ms-hyphens: auto;
+    -moz-hyphens: auto;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+}
+
+.mat-column-date2 {
+    flex: 0 0 28% !important;
+    width: 20% !important;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    -ms-hyphens: auto;
+    -moz-hyphens: auto;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+}
+
+.mat-column-date {
+    flex: 0 0 28% !important;
+    width: 20% !important;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    -ms-hyphens: auto;
+    -moz-hyphens: auto;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+}
+
+.signin {
+    outline: none;
+    float: center;
+    background: #4296eb;
+    border: 0;
+    padding: 10px 30px;
+    color: #fff;
+    transition: 0.4s;
+}
+
+.signin1 {
+    width: 130px;
+    outline: none;
+    float: center;
+    background: #4296eb;
+    border: 0;
+    padding: 10px 30px;
+    color: #fff;
+    transition: 0.4s;
+}
+
+.Edit {
+    width: 120px;
+    float: right;
+    outline: none;
+    background: green;
+    border: 0;
+    padding: 10px 30px;
+    color: #fff;
+    transition: 0.4s;
+}
+
+.Delete {
+    float: right;
+    outline: none;
+    background: red;
+    border: 0;
+    padding: 10px 30px;
+    color: #fff;
+    transition: 0.4s;
+}
+
+.Delete1 {
+    outline: none;
+    background: #4296eb;
+    border: 0;
+    padding: 10px 30px;
+    color: #fff;
+    transition: 0.4s;
+}
+
+.Delete2 {
+    outline: none;
+    background: #4296eb;
+    border: 0;
+    padding: 10px 30px;
+    color: #fff;
+    transition: 0.4s;
+}
+
+.oncour {
+    outline: none;
+    background: green;
+    float: right;
+    border: 0;
+    padding: 3px 10px;
+    color: #fff;
+    transition: 0.4s;
+}
+
+.closed {
+    outline: none;
+    background: red;
+    float: right;
+    border: 0;
+    padding: 3px 10px;
+    color: #fff;
+    transition: 0.4s;
+    border-radius: 50px
+}

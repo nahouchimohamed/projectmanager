@@ -1,0 +1,37 @@
+<mat-toolbar color="#0c4177" class="sticky">
+    <mat-toolbar-row fxLayoutAlign="space-between center">
+        <div fxLayout="row">
+
+            <button mat-button class="logo" routerLink="/Home"><h1 > <strong>Stir
+            </strong></h1>
+                
+      </button>
+
+        </div>
+        <button *ngIf="deviceXs && isLoggedIn" mat-icon-button [matMenuTriggerFor]="menu">
+        <mat-icon>more_vert</mat-icon>
+      </button >
+            <button *ngIf="!deviceXs && isLoggedIn " mat-button [matMenuTriggerFor]="menu" fxLayoutAlign="end">
+                <strong>  Menu</strong>
+      </button>
+
+
+    </mat-toolbar-row>
+
+</mat-toolbar>
+<mat-menu #menu="matMenu" fxLayoutAlign="end">
+
+    <button mat-menu-item *ngIf="isLoggedIn && professionnel" routerLink="/Category">creeprojet
+  </button>
+    <button mat-menu-item *ngIf="isLoggedIn && professionnel" routerLink="/SignUp">creeuser
+  </button>
+    <button mat-menu-item *ngIf="isLoggedIn && professionnel" routerLink="/OffreDetails">geree users
+  </button>
+    <button mat-menu-item *ngIf="isLoggedIn" routerLink="/Profile">Mon compte
+  </button>
+
+    <button mat-menu-item *ngIf="isLoggedIn" (click)="logout()" routerLink="/SignIn">Déconnecter
+  </button>
+
+
+</mat-menu>

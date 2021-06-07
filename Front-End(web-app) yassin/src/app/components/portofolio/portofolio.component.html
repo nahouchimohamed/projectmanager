@@ -1,0 +1,68 @@
+<section id="contact" class="contact" style="margin-top: 50px;">
+
+    <div class="container">
+
+        <form class="php-email-form mt-4" *ngIf="empty" data-aos="fade-up" data-aos-delay="200">
+
+            <div class="text-center">
+                <strong>{{x}}</strong>
+            </div>
+        </form>
+        <form class="php-email-form mt-4" *ngIf="!empty" data-aos="fade-up" data-aos-delay="200">
+            <div data-aos="fade-left" *ngIf="professionnel">
+                <h1> <strong>Les Projets:</strong></h1>
+            </div>
+            <div data-aos="fade-left" *ngIf="user">
+                <h1> <strong>vos Projets:</strong></h1>
+            </div>
+            <div class="row">
+                <mat-card class="mat-elevation-z5 col-md-5 col-sm-10" style="margin: 10px ; margin-left: 5%;" *ngFor="let tabledeprojet of tabledeprojet ; let id=index  ; ">
+                    <button class="oncour" *ngIf="!this.tabledeprojet.etat" disabled>En cours
+                    </button>
+                    <button class="closed" *ngIf="this.tabledeprojet.etat" disabled>closed</button>
+                    <mat-card-header>
+
+                        <mat-card-title>
+                            <h3> Titre:{{tabledeprojet.titre}}</h3>
+                        </mat-card-title>
+                        <mat-card-subtitle>
+                            <h5>Team:{{tabledeprojet.team}}</h5>
+
+
+
+
+                        </mat-card-subtitle>
+                    </mat-card-header>
+                    <img mat-card-image src="{{tabledeprojet.image}}" alt="{{tabledeprojet.image}}">
+
+                    <mat-card-content class="container ">
+                        <h5>categorie: {{tabledeprojet.categorie}}</h5>
+                    </mat-card-content>
+                    <button class="signin" (click)="openDialog(id) ">Affichier</button>
+                    <button class="Delete" (click)="Delete(id) ">Suppremer</button>
+
+                    <div class="text-center" *ngIf="show1[id]">
+                        <h2>tu es sur</h2>
+                        <button class="signin" (click)="non(id)">Non</button>
+                        <button class="signin" style="margin-left: 20px;" (click)="delete(id)">Oui</button>
+                    </div>
+                    <div class="alert alert-success" *ngIf="isSuccessful[id]">
+
+
+                        <div class="text-center">
+                            <h5> supreme avec succes
+                            </h5>
+
+                        </div>
+
+
+
+
+
+
+                    </div>
+                </mat-card>
+            </div>
+        </form>
+    </div>
+</section>

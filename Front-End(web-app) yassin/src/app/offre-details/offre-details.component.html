@@ -1,0 +1,65 @@
+<section id="contact" class="contact" style="margin-top: 50px;">
+
+    <div class="container">
+        <div class="info mt-4">
+            <h2>Vos users:</h2>
+        </div>
+        <form class="php-email-form mt-4" *ngIf="empty">
+            <div class="text-center">
+                <strong>{{x}}</strong>
+            </div>
+
+        </form>
+        <form class="php-email-form mt-4" *ngIf="!empty">
+            <div class="row">
+                <mat-card class="mat-elevation-z5 col-md-5 col-sm-10" style="margin: 10px ; margin-left: 5%;" *ngFor="let tabledeuser of tabledeuser ; let id1=index ; ">
+
+
+                    <mat-card-header>
+
+                        <mat-card-title>
+                            <h3><strong>Nom et Prenom:</strong>{{tabledeuser.Firstname}}.{{tabledeuser.Lastname}}</h3>
+
+                        </mat-card-title>
+                        <mat-card-subtitle>
+                            <h5><strong>Team:</strong>{{tabledeuser.team}}</h5>
+
+
+
+
+
+
+
+                        </mat-card-subtitle>
+                    </mat-card-header>
+                    <mat-card-content class="container ">
+                        <p><strong>Cin:</strong>{{tabledeuser.Cin}}</p>
+                        <p><strong>Mail:</strong>{{tabledeuser.email}}</p>
+                        <p><strong>Tele:</strong>{{tabledeuser.phone}}</p>
+                    </mat-card-content>
+                    <button class="signin" (click)="openDialog(id1) ">Modifier</button>
+                    <button class="Delete" (click)="Delete(id1) ">Suppremer</button>
+
+                    <div class="text-center`" *ngIf="show1[id1]">
+                        <h2>tu es sur</h2>
+                        <button class="signin" (click)="non(id1)">Non</button>
+                        <button class="signin" style="margin-left: 20px;" (click)="delete(id1) ">Oui</button>
+                    </div>
+
+                </mat-card>
+            </div>
+
+
+
+        </form>
+
+
+
+
+
+
+
+        <button class="signin" style="float: right; margin-top: 10px;" routerLink="/SignUp">Ajouter un user</button>
+    </div>
+
+</section>

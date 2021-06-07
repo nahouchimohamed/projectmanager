@@ -1,0 +1,28 @@
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.signin {
+    outline: none;
+    float: center;
+    background: #4296eb;
+    border: 0;
+    padding: 10px 30px;
+    color: #fff;
+    transition: 0.4s;
+    border-radius: 50px;
+}
+
+.signin:hover {
+    background: #1abd91;
+}
+
+.form-check-label {
+    margin-top: 15px;
+}
+
+#pro {
+    border-left: 6px solid #4296eb;
+}

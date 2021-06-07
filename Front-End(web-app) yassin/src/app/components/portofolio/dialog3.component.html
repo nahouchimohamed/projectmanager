@@ -1,0 +1,158 @@
+<form *ngIf="user" class="php-email-form mt-4 " [formGroup]="comentair1">
+
+    <div class="form-row ">
+
+
+        <div class="form-group col ">
+            <h3>Comentair:</h3>
+            <textarea rows="5 " type="text " placeholder="comentair" formControlName="comentair" class="form-control " [ngClass]="{ 'is-invalid': submitted3 && b.comentair.errors } "></textarea>
+            <div *ngIf="submitted3 && b.comentair.errors " class="invalid-feedback ">
+                <div *ngIf="b.comentair.errors.required ">Ce champ est obligatoire
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="alert alert-success " *ngIf="isSuccessful1 ">
+
+
+        <div class="text-center ">
+            <h5> commenter avec succes
+            </h5>
+
+        </div>
+
+
+
+
+
+
+    </div>
+
+    <div class="text-center "> <button class="signin" style="background-color: #4296eb; margin-left: 10px;" type="button" (click)="comanter()">commenter<i class="fa fa-spinner fa-spin " *ngIf="loading1"></i></button>
+    </div>
+    <button class="signin2" style="float: right; margin-bottom: 20px;" [mat-dialog-close]="data">Annuler</button>
+
+</form>
+<form *ngIf="professionnel" class="php-email-form mt-4 " [formGroup]="tache">
+    <h3>Cree une tache :</h3>
+
+
+    <div class="form-row ">
+
+        <div class="form-group col ">
+            <label>Adresse mail
+            </label>
+            <input type="text " placeholder=" adresse mail " formControlName="email" class="form-control " [ngClass]="{ 'is-invalid': submitted1 && a.email.errors } " />
+            <div *ngIf="submitted1 && a.email.errors " class="invalid-feedback ">
+                <div *ngIf="a.email.errors.required ">Ce champ est obligatoire
+                </div>
+                <div *ngIf="a.email.errors.pattern ">Veuillez entrer une adresse électronique valide</div>
+            </div>
+        </div>
+        <div class="form-group col">
+            <label>Material:</label>
+            <input rows="5" type="text" placeholder="Material " formControlName="mat" class="form-control" [ngClass]="{ 'is-invalid': submitted1 && a.mat.errors }" />
+            <div *ngIf="submitted1 && a.mat.errors" class="invalid-feedback">
+                <div *ngIf="a.mat.errors.required">Ce champ est obligatoire
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="form-row ">
+        <div class="form-group col ">
+            <label>Du:</label>
+            <input type="date" formControlName="date" class="form-control " [ngClass]="{ 'is-invalid': submitted1 && a.date.errors } " />
+            <div *ngIf="submitted1 && a.date.errors " class="invalid-feedback ">
+                <div *ngIf="a.date.errors.required ">Ce champ est obligatoire
+                </div>
+            </div>
+        </div>
+        <div class=" col form-group ">
+            <label>à:</label>
+            <input type="date" formControlName="date2" class="form-control" [ngClass]="{ 'is-invalid': submitted1 && a.date2.errors } " />
+            <div *ngIf="submitted1 && a.date2.errors " class="invalid-feedback ">
+                <div *ngIf="a.date2.errors.required ">Confirm Ce champ est obligatoire
+                </div>
+            </div>
+        </div>
+        <div class="form-group col-md-1.5">
+            <label>Material valid : </label>
+            <select class="form-control" formControlName="matstat" [ngClass]="{ 'is-invalid': submitted1 && a.matstat.errors }">
+                    <option *ngFor="let admin1 of admin1"  [value]="admin1.name"  >{{admin1.name}}</option>
+                    
+                 </select>
+            <div *ngIf="submitted1 && a.matstat.errors" class="invalid-feedback">
+                <div *ngIf="a.matstat.errors.required">Ce champ est obligatoire
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <div class="form-row ">
+
+
+        <div class="form-group col ">
+            <h3>Descreption:</h3>
+            <textarea rows="5 " type="text " placeholder="Descreption " formControlName="description" class="form-control " [ngClass]="{ 'is-invalid': submitted1 && a.description.errors } "></textarea>
+            <div *ngIf="submitted1 && a.description.errors " class="invalid-feedback ">
+                <div *ngIf="a.description.errors.required ">Ce champ est obligatoire
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="text-center ">
+
+        <button class="signin " (click)="onSubmit1()">S'enregistrer <i class="fa fa-spinner fa-spin " *ngIf="loading1"></i>
+    </button>
+        <button class="Delete1" style="margin-left: 20px;" (click)="Delete()">Suppremer</button>
+        <div class="text-center" *ngIf="show1">
+            <h2>tu es sur</h2>
+            <button class="signin" (click)="non()">Non</button>
+            <button class="signin" style="margin-left: 20px;" (click)="delete()">Oui</button>
+        </div>
+        <div class="alert alert-success " *ngIf="isSuccessful2">
+
+
+            <div class="text-center ">
+                <h5> supremer avec succes
+                </h5>
+
+            </div>
+
+        </div>
+
+    </div>
+    <button class="signin2" style="float: right; margin-bottom: 20px;" [mat-dialog-close]="data">Annuler</button>
+
+
+
+
+    <div class="alert alert-success " *ngIf="isSuccessful1 ">
+
+
+        <div class="text-center ">
+            <h5> update avec succes
+            </h5>
+
+        </div>
+
+
+
+
+
+
+    </div>
+
+</form>

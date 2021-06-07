@@ -1,0 +1,68 @@
+.signin {
+    outline: none;
+    float: center;
+    background: #4296eb;
+    border: 0;
+    padding: 10px 30px;
+    color: #fff;
+    transition: 0.4s;
+}
+
+.signin1 {
+    outline: none;
+    float: center;
+    background: red;
+    border: 0;
+    padding: 10px 30px;
+    color: #fff;
+    transition: 0.4s;
+}
+
+.signin2 {
+    outline: none;
+    float: center;
+    background: #4296eb;
+    border: 0;
+    padding: 10px 30px;
+    color: #fff;
+    transition: 0.4s;
+}
+
+.oncour {
+    outline: none;
+    background: green;
+    float: right;
+    border: 0;
+    padding: 3px 10px;
+    color: #fff;
+    transition: 0.4s;
+}
+
+.closed {
+    outline: none;
+    background: red;
+    float: right;
+    border: 0;
+    padding: 3px 10px;
+    color: #fff;
+    transition: 0.4s;
+}
+
+.Delete {
+    float: right;
+    outline: none;
+    background: red;
+    border: 0;
+    padding: 10px 30px;
+    color: #fff;
+    transition: 0.4s;
+}
+
+.Delete1 {
+    outline: none;
+    background: red;
+    border: 0;
+    padding: 10px 30px;
+    color: #fff;
+    transition: 0.4s;
+}

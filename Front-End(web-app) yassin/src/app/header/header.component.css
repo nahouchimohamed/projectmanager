@@ -1,0 +1,39 @@
+.signin {
+    outline: none;
+    float: right;
+    background: #4296eb;
+    padding: 10px 30px;
+    color: #fff;
+    transition: 0.4s;
+    border-radius: 50px;
+    margin-right: 10px;
+    border-color: black;
+    border-width: 1px;
+}
+
+a,
+a:hover,
+a:focus,
+a:active {
+    text-decoration: none;
+    color: inherit;
+}
+
+.signin:hover {
+    background: #1abd91;
+}
+
+.sticky {
+    padding: 0px;
+    position: fixed;
+    width: 100%;
+    top: 0px;
+    z-index: 10;
+    background-color: #4296eb;
+    color: white
+}
+
+.logo {
+    padding: 0px 5px;
+    font-size: 20px;
+}

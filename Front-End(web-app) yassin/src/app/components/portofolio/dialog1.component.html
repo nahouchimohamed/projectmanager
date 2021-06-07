@@ -1,0 +1,270 @@
+<form action="forms/contact.php" method="post" *ngIf="!creationtache1 && !modifier" class="php-email-form mt-4">
+    <div class="container">
+        <button class="oncour" type="button" *ngIf="!this.data.etat" [mat-dialog-close]="data" (click)="status()">encour</button>
+        <button class="closed" type="button" *ngIf="this.data.etat" [mat-dialog-close]="data" (click)="status()">closed</button>
+        <h1>Titre:{{data.titre}}</h1>
+        <h2>Team:{{data.team}}</h2>
+
+
+
+
+        <p>
+            <strong>categorie:</strong> {{data.categorie}}
+        </p>
+
+
+        <button class="signin" (click)="descreption()">Descreption</button>
+        <p *ngIf="descreption1">
+            <strong>Descreption :</strong> {{data.comentair}}
+        </p>
+        <button class="signin2" *ngIf="professionnel" style="float: right;" (click)="Modifier()">Modifier</button>
+
+
+        <form class="php-email-form mt-4" *ngIf="empty" data-aos="fade-up" data-aos-delay="200">
+
+            <div class="text-center">
+                <strong>{{x}}</strong>
+            </div>
+        </form>
+        <div *ngIf="!creationtache1 && !modifier && !empty">
+            <h1>les taches:</h1>
+            <form action="forms/contact.php" method="post" class="php-email-form mt-4" *ngFor="let tabletach of tabletach ; let id1=index  ;">
+
+                <div>
+
+                    <strong>{{tabletach.description}},</strong>
+                    <strong>Du:</strong> {{tabletach.date}},
+                    <strong>a:</strong> {{tabletach.date2}},
+                    <span *ngIf="!this.tabletach.matstat">materiel invalid</span >
+                    <span  *ngIf="this.tabletach.matstat">materiel valid</span >
+
+
+                    <button class="oncour" *ngIf="user" style="background-color: #4296eb; margin-left: 10px;" (click)="openDialog2(id1) ">commenter</button>
+
+                    <button class="oncour" *ngIf="professionnel" style="background-color: #4296eb; margin-left: 10px;" (click)="openDialog2(id1) ">Modifier</button>
+
+
+                    <button class="oncour" style="background-color: #4296eb; margin-left: 10px;" type="button" (click)="showcomentair(id1)">comentair</button>
+
+
+
+                    <button class="closed" type="button" *ngIf="!this.tabletach.etat" [mat-dialog-close]="data" (click)="status1(id1)">encour</button>
+                    <button class="oncour" type="button" *ngIf="this.tabletach.etat" [mat-dialog-close]="data" (click)="status1(id1)">closed</button>
+                </div>
+                <div class="form-row " *ngIf="comentair[id1]">
+                    <h3> <strong>Comentair:</strong>{{tabletach.comentair}}</h3>
+
+
+
+                </div>
+            </form>
+
+
+        </div>
+
+
+
+
+
+    </div>
+
+    <button class="signin " style="margin-top: 20px; " (click)="creationtache() ">ajouter un tach</button>
+
+
+</form>
+<form class="php-email-form mt-4 " *ngIf="creationtache1 && !modifier " [formGroup]="tache">
+    <h3>Cree une tache :</h3>
+
+
+    <div class="form-row ">
+
+        <div class="form-group col ">
+            <label>Adresse mail
+            </label>
+            <input type="text " placeholder=" adresse mail " formControlName="email" class="form-control " [ngClass]="{ 'is-invalid': submitted1 && a.email.errors } " />
+            <div *ngIf="submitted1 && a.email.errors " class="invalid-feedback ">
+                <div *ngIf="a.email.errors.required ">Ce champ est obligatoire
+                </div>
+                <div *ngIf="a.email.errors.pattern ">Veuillez entrer une adresse électronique valide</div>
+            </div>
+        </div>
+        <div class="form-group col">
+            <label>Material:</label>
+            <input rows="5" type="text" placeholder="Material  " formControlName="mat" class="form-control" [ngClass]="{ 'is-invalid': submitted1 && a.mat.errors }" />
+            <div *ngIf="submitted1 && a.mat.errors" class="invalid-feedback">
+                <div *ngIf="a.mat.errors.required">Ce champ est obligatoire
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="form-row ">
+        <div class="form-group col ">
+            <label>Du:</label>
+            <input type="date" formControlName="date" class="form-control " [ngClass]="{ 'is-invalid': submitted1 && a.date.errors } " />
+            <div *ngIf="submitted1 && a.date.errors " class="invalid-feedback ">
+                <div *ngIf="a.date.errors.required ">Ce champ est obligatoire
+                </div>
+            </div>
+        </div>
+        <div class=" col form-group ">
+            <label>à:</label>
+            <input type="date" formControlName="date2" class="form-control" [ngClass]="{ 'is-invalid': submitted1 && a.date2.errors } " />
+            <div *ngIf="submitted1 && a.date2.errors " class="invalid-feedback ">
+                <div *ngIf="a.date2.errors.required ">Confirm Ce champ est obligatoire
+                </div>
+            </div>
+        </div>
+        <div class="form-group col-md-1.5">
+            <label>Material valid :</label>
+            <select class="form-control" formControlName="matstat" [ngClass]="{ 'is-invalid': submitted1 && a.matstat.errors }">
+                    <option *ngFor="let admin1 of admin1"  [value]="admin1.name"  >{{admin1.name}}</option>
+                    
+                 </select>
+            <div *ngIf="submitted1 && a.matstat.errors" class="invalid-feedback">
+                <div *ngIf="a.matstat.errors.required">Ce champ est obligatoire
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <div class="form-row ">
+
+
+        <div class="form-group col ">
+            <h3>Descreption:</h3>
+            <textarea rows="5 " type="text " placeholder="Descreption " formControlName="description" class="form-control " [ngClass]="{ 'is-invalid': submitted1 && a.description.errors } "></textarea>
+            <div *ngIf="submitted1 && a.description.errors " class="invalid-feedback ">
+                <div *ngIf="a.description.errors.required ">Ce champ est obligatoire
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <div class="text-center "><button class="signin " (click)="onSubmit1() ">S'enregistrer <i class="fa fa-spinner fa-spin " *ngIf="loading1"></i></button></div>
+    <button class="signin2 " style="float: right; " (click)="creationtache() ">Annuler</button>
+
+
+    <div class="alert alert-success " *ngIf="isSuccessful1 ">
+
+
+        <div class="text-center ">
+            <h5> creation avec succes
+            </h5>
+
+        </div>
+
+
+
+
+
+
+    </div>
+
+</form>
+<form class="php-email-form mt-4 " *ngIf=" !creationtache1 && modifier " [formGroup]="projet">
+    <h3>Cree une projet:</h3>
+
+
+    <div class="form-row ">
+
+        <div class="form-group col-4 ">
+            <label>Titre </label>
+
+
+            <input type="text " placeholder="titre " formControlName="titre" class="form-control " [ngClass]="{ 'is-invalid': submitted && f.titre.errors } " />
+            <div *ngIf="submitted && f.titre.errors " class="invalid-feedback ">
+                <div *ngIf="f.titre.errors.required ">Ce champ est obligatoire
+                </div>
+                <div *ngIf="f.titre.errors.pattern ">Ce champ doit contenir seulement des caractères
+                </div>
+                <div *ngIf="f.titre.errors.maxlength ">Ce champ doit contenir ne plus que 8 caractères
+                </div>
+                <div *ngIf="f.titre.errors.minlength ">Ce champ doit contenir plus que 6 caractères
+                </div>
+
+            </div>
+        </div>
+
+        <div class="form-group col-4 ">
+            <label>categorie</label>
+            <input type="text " placeholder="categorie " formControlName="categorie" class="form-control " [ngClass]="{ 'is-invalid': submitted && f.categorie.errors } " />
+            <div *ngIf="submitted && f.categorie.errors " class="invalid-feedback ">
+                <div *ngIf="f.categorie.errors.required ">Ce champ est obligatoire
+                </div>
+                <div *ngIf="f.categorie.errors.pattern ">Ce champ doit contenir seulement des caractères
+                </div>
+                <div *ngIf="f.categorie.errors.maxlength ">Ce champ doit contenir ne plus que 8 caractères
+                </div>
+                <div *ngIf="f.categorie.errors.minlength ">Ce champ doit contenir plus que 6 caractères
+                </div>
+
+            </div>
+        </div>
+        <div class="form-group col-4 ">
+            <label>team</label>
+            <input type="text " placeholder="team " formControlName="team" class="form-control " [ngClass]="{ 'is-invalid': submitted && f.team.errors } " />
+            <div *ngIf="submitted && f.team.errors " class="invalid-feedback ">
+                <div *ngIf="f.team.errors.required ">Ce champ est obligatoire
+                </div>
+                <div *ngIf="f.team.errors.pattern ">Ce champ doit contenir seulement des caractères
+                </div>
+                <div *ngIf="f.team.errors.maxlength ">Ce champ doit contenir ne plus que 8 caractères
+                </div>
+                <div *ngIf="f.team.errors.minlength ">Ce champ doit contenir plus que 6 caractères
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <div class="form-row ">
+
+
+        <div class="form-group col ">
+            <h3>Descreption:</h3>
+            <textarea rows="5 " type="text " placeholder="Descreption " formControlName="comentair" class="form-control " [ngClass]="{ 'is-invalid': submitted && f.comentair.errors } "></textarea>
+            <div *ngIf="submitted && f.comentair.errors " class="invalid-feedback ">
+                <div *ngIf="f.comentair.errors.required ">Ce champ est obligatoire
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <label class="image-upload-container btn btn-bwm ">
+            <input #imageInput type="file" accept="image/*"(change)="onSelectNewFile($event?.target)">
+          </label>
+    <div class="text-center "><button class="signin " (click)="onSubmit() ">S'enregistrer <i class="fa fa-spinner fa-spin " *ngIf="loading "></i></button></div>
+    <button class="signin2 " style="float: right; " (click)="Modifier() ">Annuler</button>
+
+
+    <div class="alert alert-success " *ngIf="isSuccessful ">
+
+
+        <div class="text-center ">
+            <h5> update avec succes
+            </h5>
+
+        </div>
+
+
+
+
+
+
+    </div>
+
+</form>

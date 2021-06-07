@@ -1,0 +1,46 @@
+<section id="contact" class="contact">
+    <div class="container">
+
+        <div class="container" *ngIf="currentUser">
+            <div class="info mt-4">
+
+
+                <h3>Vos informations personnelles:
+                </h3>
+
+
+            </div>
+            <form class="php-email-form mt-4">
+
+                <p>
+                    <strong>Nom et Prenom:{{ currentUser.Firstname }}.{{ currentUser.Lastname }}</strong>
+                </p>
+                <p>
+                    <strong>Team:{{ currentUser.team }}</strong>
+                </p>
+                <p>
+                    <strong>Cin:{{ currentUser.Cin }}</strong>
+                </p>
+                <p>
+                    <strong>Télephone:</strong> {{ currentUser.Phone }}
+                </p>
+                <div class="row">
+
+                    <div class="col-md-6">
+
+                        <p>
+                            <strong>Adresse mail:</strong> {{ currentUser.email }}
+                        </p>
+                    </div>
+
+                </div>
+
+
+
+
+
+            </form>
+        </div>
+    </div>
+
+</section>

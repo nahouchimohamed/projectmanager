@@ -1,0 +1,30 @@
+.signin {
+    outline: none;
+}
+
+.signin:hover {
+    background: #1abd91;
+}
+
+.signup {
+    outline: none;
+    float: center;
+    background: #4296eb;
+    border: 0;
+    padding: 10px 30px;
+    color: #fff;
+    transition: 0.4s;
+    border-radius: 50px;
+}
+
+.signup:hover {
+    background: #1abd91;
+}
+
+.col-md-1 {
+    border-right: 6px solid #4296eb;
+}
+
+.col-md-4 {
+    margin-top: 50px;
+}

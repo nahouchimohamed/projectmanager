@@ -1,0 +1,111 @@
+<section id="contact" class="contact">
+    <div class="container">
+
+
+
+
+        <form class="php-email-form mt-4" [formGroup]="projet">
+            <h3>Cree une projet:</h3>
+
+
+            <div class="form-row">
+
+                <div class="form-group col-4">
+                    <label>Titre </label>
+
+
+                    <input type="text" placeholder="titre " formControlName="titre" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.titre.errors }" />
+                    <div *ngIf="submitted && f.titre.errors" class="invalid-feedback">
+                        <div *ngIf="f.titre.errors.required">Ce champ est obligatoire
+                        </div>
+                        <div *ngIf="f.titre.errors.pattern">Ce champ doit contenir seulement des caractères
+                        </div>
+                        <div *ngIf="f.titre.errors.maxlength">Ce champ doit contenir ne plus que 8 caractères
+                        </div>
+                        <div *ngIf="f.titre.errors.minlength">Ce champ doit contenir plus que 6 caractères
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="form-group col-4">
+                    <label>categorie</label>
+                    <input type="text" placeholder="categorie" formControlName="categorie" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.categorie.errors }" />
+                    <div *ngIf="submitted && f.categorie.errors" class="invalid-feedback">
+                        <div *ngIf="f.categorie.errors.required">Ce champ est obligatoire
+                        </div>
+                        <div *ngIf="f.categorie.errors.pattern">Ce champ doit contenir seulement des caractères
+                        </div>
+                        <div *ngIf="f.categorie.errors.maxlength">Ce champ doit contenir ne plus que 8 caractères
+                        </div>
+                        <div *ngIf="f.categorie.errors.minlength">Ce champ doit contenir plus que 6 caractères
+                        </div>
+
+                    </div>
+                </div>
+                <div class="form-group col-4">
+                    <label>team</label>
+                    <input type="text" placeholder="team" formControlName="team" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.team.errors }" />
+                    <div *ngIf="submitted && f.team.errors" class="invalid-feedback">
+                        <div *ngIf="f.team.errors.required">Ce champ est obligatoire
+                        </div>
+                        <div *ngIf="f.team.errors.pattern">Ce champ doit contenir seulement des caractères
+                        </div>
+                        <div *ngIf="f.team.errors.maxlength">Ce champ doit contenir ne plus que 8 caractères
+                        </div>
+                        <div *ngIf="f.team.errors.minlength">Ce champ doit contenir plus que 6 caractères
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+            <div class="form-row">
+
+
+                <div class="form-group col">
+                    <h3>Descreption:</h3>
+                    <textarea rows="5" type="text" placeholder="Descreption " formControlName="comentair" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.comentair.errors }"></textarea>
+                    <div *ngIf="submitted && f.comentair.errors" class="invalid-feedback">
+                        <div *ngIf="f.comentair.errors.required">Ce champ est obligatoire
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <label class="image-upload-container btn btn-bwm">
+                <input #imageInput type="file" accept="image/*"(change)="onSelectNewFile($event?.target)">
+              </label>
+            <div class="text-center"><button class="signin" (click)="onSubmit()">S'enregistrer <i class="fa fa-spinner fa-spin" *ngIf="loading"></i></button></div>
+
+
+            <div class="alert alert-success" *ngIf="isSuccessful">
+
+
+                <div class="text-center">
+                    <h5> creation ave succes
+                    </h5>
+
+                </div>
+
+
+
+
+
+
+            </div>
+
+        </form>
+
+
+
+
+    </div>
+
+</section>

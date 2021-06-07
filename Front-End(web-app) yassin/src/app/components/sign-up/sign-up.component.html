@@ -1,0 +1,173 @@
+<section id="contact" class="contact">
+    <div class="container">
+
+
+
+
+
+        <form class="php-email-form mt-4" *ngIf="!isSuccessful" [formGroup]="registerForm">
+            <div class="form-row">
+
+                <div class="text-center">
+                    <h3>Créer Un compte:</h3>
+                </div>
+
+            </div>
+            <div class="form-row">
+
+                <div class="form-group col-6">
+                    <label>Nom</label>
+                    <input type="text" placeholder="Votre Nom " formControlName="FirstName" class="form-control" [ngClass]="{ 'is-invalid': submitted1 && y.FirstName.errors }" />
+                    <div *ngIf="submitted1 && y.FirstName.errors" class="invalid-feedback">
+                        <div *ngIf="y.FirstName.errors.required">Ce champ est obligatoire
+                        </div>
+                        <div *ngIf="y.FirstName.errors.pattern">Ce champ doit contenir seulement des caractères
+                        </div>
+                        <div *ngIf="y.FirstName.errors.maxlength">Ce champ doit contenir ne plus que 8 caractères
+                        </div>
+                        <div *ngIf="y.FirstName.errors.minlength">Ce champ doit contenir plus que 3 caractères
+                        </div>
+
+                    </div>
+                </div>
+                <div class="form-group col-6">
+                    <label>Prenom</label>
+                    <input type="text" placeholder="Votre Prenom " formControlName="LastName" class="form-control" [ngClass]="{ 'is-invalid': submitted1 && y.LastName.errors }" />
+                    <div *ngIf="submitted1 && y.LastName.errors" class="invalid-feedback">
+                        <div *ngIf="y.LastName.errors.required">Ce champ est obligatoire
+                        </div>
+                        <div *ngIf="y.LastName.errors.pattern">Ce champ doit contenir seulement des caractères
+                        </div>
+                        <div *ngIf="y.LastName.errors.maxlength">Ce champ doit contenir ne plus que 8 caractères
+                        </div>
+                        <div *ngIf="y.LastName.errors.minlength">Ce champ doit contenir plus que 3 caractères
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col">
+                    <label>Cin</label>
+                    <input type="text" placeholder="Votre Cin " formControlName="Cin" class="form-control" [ngClass]="{ 'is-invalid': submitted1 && y.Cin.errors }" maxlength="8" />
+                    <div *ngIf="submitted1 && y.Cin.errors" class="invalid-feedback">
+                        <div *ngIf="y.Cin.errors.required">Ce champ est obligatoire
+                        </div>
+                        <div *ngIf="y.Cin.errors.minlength">Ce champ doit contenir 8 numéros
+                        </div>
+                        <div *ngIf="y.Cin.errors.pattern">Ce champ doit contenir seulement des numéros
+                        </div>
+
+
+                    </div>
+                </div>
+                <div class="form-group col-6">
+                    <label>Team</label>
+                    <input type="text" placeholder="Votre team " formControlName="team" class="form-control" [ngClass]="{ 'is-invalid': submitted1 && y.team.errors }" />
+                    <div *ngIf="submitted1 && y.team.errors" class="invalid-feedback">
+                        <div *ngIf="y.team.errors.required">Ce champ est obligatoire
+                        </div>
+                        <div *ngIf="y.team.errors.pattern">Ce champ doit contenir seulement des caractères
+                        </div>
+                        <div *ngIf="y.team.errors.maxlength">Ce champ doit contenir ne plus que 8 caractères
+                        </div>
+                        <div *ngIf="y.team.errors.minlength">Ce champ doit contenir plus que 3 caractères
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-1.5">
+                    <label>Admin:</label>
+                    <select class="form-control" formControlName="Admin" [(ngModel)]="selectedOption" [ngClass]="{ 'is-invalid': submitted1 && y.Admin.errors }">
+                        <option *ngFor="let Admin of Admin"  [value]="Admin.name"  >{{Admin.name}}</option>
+                        
+                     </select>
+                    <div *ngIf="submitted1 && y.Admin.errors" class="invalid-feedback">
+                        <div *ngIf="y.Admin.errors.required">Ce champ est obligatoire
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group col">
+                    <label>Télephone</label>
+                    <input type="text" placeholder="Votre Télephone " formControlName="phone" class="form-control" [ngClass]="{ 'is-invalid': submitted1 && y.phone.errors }" maxlength="8" />
+                    <div *ngIf="submitted1 && y.phone.errors" class="invalid-feedback">
+                        <div *ngIf="y.phone.errors.required">Ce champ est obligatoire
+                        </div>
+                        <div *ngIf="y.phone.errors.minlength">Ce champ doit contenir 8 numéros
+                        </div>
+                        <div *ngIf="y.phone.errors.pattern">Ce champ doit contenir seulement des numéros
+                        </div>
+
+
+                    </div>
+                </div>
+                <div class="form-group col">
+                    <label>Adresse mail
+                    </label>
+                    <input type="text" placeholder="Votre adresse mail" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted1 && y.email.errors }" />
+                    <div *ngIf="submitted1 && y.email.errors" class="invalid-feedback">
+                        <div *ngIf="y.email.errors.required">Ce champ est obligatoire
+                        </div>
+                        <div *ngIf="y.email.errors.pattern">Veuillez entrer une adresse électronique valide</div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col">
+                    <label>Mot de passe
+                    </label>
+                    <input type="password" placeholder="mot de passe" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted1 && y.password.errors }" />
+                    <div *ngIf="submitted1 && y.password.errors" class="invalid-feedback">
+                        <div *ngIf="y.password.errors.required">Ce champ est obligatoire
+                        </div>
+                        <div *ngIf="y.password.errors.minlength">Ce champ doit contenir plus que 6 caractères
+                        </div>
+                    </div>
+                </div>
+                <div class=" col form-group">
+                    <label>Confirmer Mot de passe</label>
+                    <input type="password" placeholder="mot de passe " formControlName="password2" class="form-control" [ngClass]="{ 'is-invalid': submitted1 && y.password2.errors }" />
+                    <div *ngIf="submitted1 && y.password2.errors" class="invalid-feedback">
+                        <div *ngIf="y.password2.errors.required">Ce champ est obligatoire
+
+                        </div>
+                        <div *ngIf="y.password2.errors.mustMatch">Les deux mots de passe ne sont pas identiques
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="text-center"><button class="signin" (click)="onSubmit1()">S'enregistrer <i class="fa fa-spinner fa-spin" *ngIf="loading"></i>   </button></div>
+
+            <div class="form-group">
+                <div class="alert alert-danger" role="alert" *ngIf="submitted1 && isSignUpFailed">
+                    {{ errorMessage }}
+                </div>
+            </div>
+        </form>
+
+        <div class="alert alert-success" *ngIf="isSuccessful">
+
+
+            <div class="text-center">
+                <h5> Inscrit avec succes
+                </h5>
+
+            </div>
+
+
+
+
+
+
+        </div>
+    </div>
+
+</section>
+
+<!-- credits -->
